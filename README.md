@@ -40,3 +40,47 @@ The dataset is a json file [data.json](dataset.json). In another words, it is a 
 - [ ] Remove and filter unrelevant data from the dataset. The data which is considered unrelevant when it is not related to the USF and contains unnecessary information.
 - [ ] Clean the data. The current data contain a lo of new line characters (\n). They should be removed or cut off.
 - [ ] Develop a python program to clean data, and filter out the unrelevant data. The program should be able to automatically clean the data and filter out the unrelevant data when the new data is added to the dataset. 
+
+## Other Tasks
+
+Everyone can contribute to the project by picking up one of the following tasks.
+
+- [ ] Develop a python program to filter out the data that relevant to 
+1. Application process to USF
+2. Housing information at USF
+3. Dining at USF
+4. Student life at USF
+
+After that, add the key to the metadata of those data objects. For example, the data object that contains the information about the application process to USF should have the key and vaue "group": "application" in the metadata.
+{
+    "page_content": {
+        "Apply. See .... "
+        }
+    "metadata": {
+        "source": "https://admissions.usf.edu/application",
+        "title": "About USF | University of South Florida",
+        "group": "application"
+        }
+    },
+
+{
+    "page_content": {
+        "These are the dining options .... "
+        }
+    "metadata": {
+        "source": "https://www.usf.edu/campus-life/housing-dining.aspx",
+        "title": "Housing and Dining | University of South Florida",
+        "group": "dining"
+        }
+    },
+
+{
+    "page_content": {
+        "Tampa Campus Student Life .... "
+        }
+    "metadata": {
+        "source": "https://www.usf.edu/campus-life/",
+        "title": "Student Life at Tampa Campus | University of South Florida",
+        "group": "student-life"
+        }
+    },
