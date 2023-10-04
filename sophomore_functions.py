@@ -15,3 +15,12 @@ def delete_data(data_file):
 # Usage:
 data_file = 'data.json'
 data = delete_data(data_file)
+
+## Plan 1:
+### 1. Create a list of keywords to delete
+### 2. Loop through the data
+### 3. If the keyword is in the source, delete the item
+
+## Plan 2:
+### Loop through the data
+### Before the third slash in the source, if the string 'usf' does not exist in the source, delete the item
