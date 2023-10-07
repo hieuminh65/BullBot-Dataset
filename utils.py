@@ -8,22 +8,21 @@ def filter(data_file, keywords_dining):
             filter_data.append(item['metadata']['source'])
     return filter_data
 
+# method used for deleting \n
+data_file = 'data.json'
+def delete_newlines(data_file):
+    new_data = []
+    data = json.load(open(data_file))
+    for item in data:
+        new_page_content = item['page_content'].replace('\n', '')
 
-#First method for deleting \n
-def delete_slash_n(input_string):
-    input_string = ['page_content']
-    new_string = input_string.replace('\n','')
-    return new_string
+        modified_item = {
+            'page_content': new_page_content,
+        }
 
-#Second method for deleteing \n
-def delete_newlines(input_string):
-    input_string = ['page_content']
-    new_string = ""
-    for char in input_string:
-        if char != '\n':
-            new_string += char
-    return new_string
+        new_data.append(modified_item)
 
+    return new_data
 
 
 
