@@ -23,6 +23,15 @@ def delete_data_if_usf(data_file):
 
     return data
 
+def remove_spaces(data_file):
+    keywords = ['\n', '\r', '\t', '\xa0']
+    with open(data_file) as f:
+        data = json.load(f)
+    for char in keywords:
+        for i in range(len(data)):
+            data[i]['page_content'] = data[i]['page_content'].replace(char, '')
+    return data
+
 # Usage:
 data_file = 'data.json'
 data = delete_data_based_on_keywords(data_file)
