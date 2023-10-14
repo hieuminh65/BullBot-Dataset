@@ -3,13 +3,14 @@ from utils import filter
 import json
 data = json.load(open('data.json'))
 
-# Filter Dining Data
+# Keywords
 keywords_dining = ['dining', 'campusdish','restaurant']
 keywords_housing = ['housing','residence']
 keywords_studentlife = ['activities','extracurricular','communities']
 keywords_application = ['admissions','scholarship','application deadline','admitted']
 data_file = 'data.json'
 
+# Filter Dining Data
 filtered_data_dining = filter(data_file, keywords_dining)
 print(filtered_data_dining)
 print('\n')
@@ -23,8 +24,6 @@ print('\n')
 filtered_data_application = filter(data_file,keywords_application)
 print(filtered_data_application)
 print('\n')
-
-
 
 # Student life at USF
 filtered_data_student_life = filter(data_file,keywords_studentlife)
