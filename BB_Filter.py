@@ -16,9 +16,9 @@ class BB_Filter():
         (r' +', ' '),       # Replace consecutive spaces with a single space
         ]
         self.invalid_keywords = ['youtube', 'instagram', 'facebook', 'twitter', 'fyp365', 'title2', 'sacscoc', 'google', 'secure', 'nam04']
-        self.invalid_contents = ['Page Not Found']
+        self.invalid_contents = ['Page Not Found', 'sign in to your account', 'JavaScript must be enabled to use the system', 'This site has been archived or suspended']
 
-    def clean_page_content(self) -> list[dict]:
+    def _clean_page_content(self) -> list[dict]:
         """
         Cleans the 'page_content' text in the provided data if contains too many \n, \t, or spaces.
         """
@@ -28,7 +28,7 @@ class BB_Filter():
 
         return self.data
     
-    def delete_data_if_not_contain_usf(self) -> list[dict]:
+    def _delete_data_if_not_contain_usf(self) -> list[dict]:
         """
         Delete data if the source does not contain usf before the third slash
         """
@@ -38,7 +38,7 @@ class BB_Filter():
 
         return self.data
     
-    def delete_data_if_page_not_found(self) -> list[dict]:
+    def _delete_data_if_page_not_found(self) -> list[dict]:
         """
         Delete data if the page content contains invalid words
         """
@@ -49,7 +49,17 @@ class BB_Filter():
 
         return self.data
     
-    def filter_sources_on_keywords(self) -> list[dict]:
+    def _delete_data_if_content_is_none(self) -> list[dict]:
+        """
+        Delete data if the page content contains invalid words
+        """
+        for item in self.data[:]:
+            if item['page_content'] == "":
+                self.data.remove(item)
+
+        return self.data
+    
+    def _filter_sources_on_keywords(self) -> list[dict]:
         """
         Delete data if the source contains any of the invalid keywords
         """
@@ -59,7 +69,7 @@ class BB_Filter():
 
         return self.data
     
-    def format_title(self) -> list[dict]:
+    def _format_title(self) -> list[dict]:
         """
         Format the title of of some items in the data
         """
@@ -70,9 +80,10 @@ class BB_Filter():
         return self.data
     
     def filter(self) -> list[dict]:
-        self.clean_page_content()
-        self.delete_data_if_not_contain_usf()
-        self.delete_data_if_page_not_found()
-        self.filter_sources_on_keywords()
-        self.format_title()
+        self._clean_page_content()
+        self._delete_data_if_not_contain_usf()
+        self._delete_data_if_page_not_found()
+        self._delete_data_if_content_is_none()
+        self._filter_sources_on_keywords()
+        self._format_title()
         return self.data
