@@ -34,16 +34,13 @@ The dataset is a json file [data.json](dataset.json). In another words, it is a 
 
 ## Data Analyst Notes
 - Data Analyst only need to look at the [data.json](data.json) file.
-- Data Analyst can use the example.ipynb file to get started with the dataset. However, it is just an example to start. 
 
 **Tasks:**
-- [ ] Remove and filter unrelevant data from the dataset. The data which is considered unrelevant when it is not related to the USF and contains unnecessary information.
-- [ ] Clean the data. The current data contain a lo of new line characters (\n). They should be removed or cut off.
-- [ ] Develop a python program to clean data, and filter out the unrelevant data. The program should be able to automatically clean the data and filter out the unrelevant data when the new data is added to the dataset. 
+- [x] Remove and filter unrelevant data from the dataset. The data which is considered unrelevant when it is not related to the USF and contains unnecessary information.
+- [x] Clean the data. The current data contain a lo of new line characters (\n). They should be removed or cut off.
+- [x] Develop a python program to clean data, and filter out the unrelevant data. The program should be able to automatically clean the data and filter out the unrelevant data when the new data is added to the dataset. 
 
 ## Other Tasks
-
-Everyone can contribute to the project by picking up one of the following tasks.
 
 - [ ] Develop a python program to filter out the data that relevant to 
 1. Application process to USF
