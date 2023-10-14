@@ -13,12 +13,10 @@ data_file = 'data.json'
 def delete_newlines(data_file):
    data = json.load(open(data_file)) # as a way to open the data.json file
    for item in data:
-       new_page_content = (item['page_content'].replace('\n', '',item['page_content'].count('\n') - 1) for data_file in data_file)
-       modified_item = { # so now modified_item is the dict of data
-           'page_content': new_page_content,
-           'metadata': 'page_content'
-       }
-       item['page_content'] = modified_item # new_data is a new version of data without \n
+        for i in range(len(data)):
+           data[i]['page_content'] = data[i]['page_content'].replace('\n', '')
+           data[i]['page_content'] = data[i]['page_content'].replace(" ","")
+           data[i]['page_content'] = data[i]['page_content'] + '\n'
    return data
 # so the main mission is finding a way to match new type of variable to the type of old variable
 
